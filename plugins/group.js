@@ -5,7 +5,7 @@ command(
   {
     pattern: "tagall",
     fromMe: false,
-    desc: "Tags every person in group.",
+    desc: "Tags every person in group by the clan DEC.",
     type: "group",
   },
   async (message, match) => {
@@ -31,7 +31,7 @@ command(
   {
     pattern: "kickall",
     fromMe: true, // Only bot owner/admin
-    desc: "Kicks all non-admin members.",
+    desc: "Kicks all non-admin members by the clan DEC.",
     type: "group",
   },
   async (message, match) => {
