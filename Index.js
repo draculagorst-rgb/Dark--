@@ -23,7 +23,7 @@ require("dotenv").config();
 
 // Keep Alive for Render
 app.get("/", (req, res) => res.send("Dark_MD Bot is Running!"));
-app.listen(port, () => console.log(Server running on port ${port}));
+app.listen(port, () => console.log(`Server running on port ${port}`));
 
 async function start() {
     const { state, saveCreds } = await useMultiFileAuthState("session");
@@ -53,4 +53,26 @@ async function start() {
                 // Execute command
                 try {
                     await command.function(msg, msg.body.match(command.pattern));
-                } catc
+                } catch (e) {
+                    console.error(e);
+                }
+            }
+        });
+    });
+
+    conn.ev.on("creds.update", saveCreds);
+    
+    conn.ev.on("connection.update", async (update) => {
+        const { connection, lastDisconnect } = update;
+        if (connection === "close") {
+            const shouldReconnect = lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut;
+            if (shouldReconnect) start();
+        } else if (connection === "open") {
+            console.log("Dark_MD Bot Started Successfully!");
+        }
+    });
+}
+
+start();
+Ln 1, Col 1
+UTF-8
