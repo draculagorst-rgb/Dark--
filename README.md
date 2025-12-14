@@ -1,6 +1,6 @@
 # Dark_MD Bot ( Based)
 
-A customized WhatsApp bot based on the [Levanter](😋😈😋) architecture, optimized for performance with a reduced feature set.
+A customized WhatsApp bot based(😋DARK😈😋) architecture, optimized for performance with a reduced feature set.
 
 ## 🚀 Features
 - Lightweight: Only essential plugins included.
